@@ -217,12 +217,12 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
               </div>
             </div>
 
-            {/* Colonne droite : Composition visuelle authentique d'atelier */}
+            {/* Colonne droite : Composition visuelle authentique d'atelier SANS SUPERPOSITION GÊNANTE */}
             <div className="lg:col-span-5 relative flex justify-center">
-              <div className="relative w-full max-w-md">
-                {/* Carte Principale : L'Atelier & Pagnes */}
+              <div className="relative w-full max-w-md space-y-3.5 sm:space-y-4">
+                {/* Carte 1 : L'Atelier & Pagnes (100% visible et lisible) */}
                 <div className="relative rounded-3xl overflow-hidden border-2 border-white/15 shadow-2xl bg-primary-900 group hover:border-terracotta-400/40 hover:shadow-terracotta-500/20 transition-all duration-500">
-                  <div className="relative aspect-4/3 w-full">
+                  <div className="relative aspect-16/10 w-full">
                     <Image
                       src="/images/atelier-pagnes.jpg"
                       alt="Couturière découpant des pagnes wax dans un atelier africain"
@@ -230,52 +230,61 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                       priority
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+
+                    {/* Badge Jauge Tabaski en haut à droite */}
+                    <div className="absolute top-3 right-3 px-3 py-1.5 rounded-2xl bg-primary-950/95 border border-jauge-vert/60 shadow-xl backdrop-blur-md flex items-center gap-2 animate-float z-10">
+                      <div className="w-5 h-5 rounded-full bg-jauge-vert/20 text-jauge-vert flex items-center justify-center font-black text-xs animate-pulse">
+                        ✓
+                      </div>
+                      <div>
+                        <span className="text-[9px] uppercase font-extrabold text-jauge-vert block tracking-wider leading-none">
+                          Jauge Anti-Surcharge
+                        </span>
+                        <span className="text-[11px] font-black text-white leading-tight">
+                          68% • 4 places libres
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 text-white">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="px-2 py-0.5 rounded-md bg-terracotta-500 text-white text-[10px] font-extrabold uppercase">
+                  {/* Texte de la photo 1 : Dédié et parfaitement lisible */}
+                  <div className="p-4 sm:p-5 bg-gradient-to-b from-primary-950/95 to-primary-900 text-white border-t border-white/10">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="px-2.5 py-0.5 rounded-md bg-terracotta-500 text-white text-[10px] font-extrabold uppercase tracking-wide">
                         À la table de coupe
                       </span>
-                      <span className="text-[11px] text-coton-300 font-medium">Bazin & Wax certifiés</span>
+                      <span className="text-xs text-coton-300 font-semibold">Bazin & Wax certifiés</span>
                     </div>
                     <p className="text-xs sm:text-sm font-bold text-white leading-snug">
-                      La photo du coupon est liée au client dès la dépose.
+                      La photo du coupon est liée au client dès la dépose pour zéro confusion.
                     </p>
                   </div>
                 </div>
 
-                {/* Vignette Maître Tailleur en superposition flottante */}
-                <div className="absolute -bottom-6 -left-3 sm:-left-5 w-36 sm:w-44 rounded-2xl overflow-hidden border-2 border-terracotta-400 shadow-2xl bg-primary-950 animate-float-delayed hover:scale-105 transition-transform duration-300 z-20">
-                  <div className="relative aspect-square w-full">
+                {/* Carte 2 : Maître Tailleur (Positionnée proprement en dessous, SANS RIEN MASQUER) */}
+                <div className="card-interactive group p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md shadow-xl flex items-center gap-3.5 hover:bg-white/15 hover:border-terracotta-400/50 transition-all">
+                  <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-xl overflow-hidden shrink-0 border-2 border-terracotta-400 shadow-md">
                     <Image
                       src="/images/maitre-tailleur.jpg"
                       alt="Maître tailleur africain avec son mètre ruban"
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-2 bg-primary-950 text-center">
-                    <span className="text-[10px] font-black uppercase text-terracotta-400 block tracking-tight">
-                      Maître Tailleur
-                    </span>
-                    <span className="text-[9px] text-coton-300 font-medium">Zéro retard de fête</span>
-                  </div>
-                </div>
-
-                {/* Badge flottant Jauge Tabaski */}
-                <div className="absolute -top-4 -right-2 sm:-right-4 px-3.5 py-2 rounded-2xl bg-primary-950/95 border border-jauge-vert/60 shadow-xl backdrop-blur-md flex items-center gap-2.5 animate-float z-20 hover:scale-105 transition-transform duration-300">
-                  <div className="w-7 h-7 rounded-full bg-jauge-vert/20 text-jauge-vert flex items-center justify-center font-black text-xs animate-pulse">
-                    ✓
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-extrabold text-jauge-vert block tracking-wider">
-                      Jauge Anti-Surcharge
-                    </span>
-                    <span className="text-xs font-black text-white">
-                      68% • 4 places libres
-                    </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <span className="text-[10px] sm:text-xs font-black uppercase text-terracotta-400 tracking-wider">
+                        Maître Tailleur serein
+                      </span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-jauge-vert animate-ping" />
+                    </div>
+                    <h4 className="text-xs sm:text-sm font-extrabold text-white leading-tight">
+                      Zéro retard de fête • Réputation protégée
+                    </h4>
+                    <p className="text-[11px] text-coton-300 mt-0.5 line-clamp-1">
+                      Capacité maîtrisée avant d&apos;accepter chaque commande.
+                    </p>
                   </div>
                 </div>
               </div>
