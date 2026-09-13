@@ -20,7 +20,7 @@ export function ClientFolderMockup() {
   const [activeTab, setActiveTab] = useState<'mesures' | 'preferences' | 'commandes'>('mesures');
 
   return (
-    <div className="relative mx-auto w-full max-w-[360px] sm:max-w-[390px] rounded-[42px] p-3 bg-primary-950 shadow-2xl shadow-primary-950/40 border-4 border-primary-900/60 text-left select-none">
+    <div className="relative mx-auto w-full max-w-[360px] sm:max-w-[390px] rounded-[42px] p-3 bg-primary-950 shadow-2xl shadow-primary-950/40 border-4 border-primary-900/60 text-left select-none animate-float hover:shadow-terracotta-500/20 transition-shadow duration-500">
       {/* Encoche & haut-parleur mobile */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-4 bg-primary-950 rounded-full flex items-center justify-center gap-2 z-20">
         <div className="w-10 h-1 bg-primary-800 rounded-full" />

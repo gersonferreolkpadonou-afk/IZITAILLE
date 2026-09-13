@@ -104,24 +104,31 @@ export function CapacityGaugeShowcase() {
 
         {/* Carte de simulation dynamique */}
         <div
-          className={`mt-6 p-6 rounded-2xl border-2 text-left transition-all duration-300 ${current.couleurBg} ${current.couleurBorder}`}
+          className={`mt-6 p-6 rounded-2xl border-2 text-left transition-all duration-500 transform hover:scale-[1.01] ${current.couleurBg} ${current.couleurBorder} ${
+            selectedScenario === 'vert'
+              ? 'shadow-xl shadow-emerald-500/15'
+              : selectedScenario === 'orange'
+              ? 'shadow-xl shadow-amber-500/15'
+              : 'shadow-xl shadow-red-500/20'
+          }`}
         >
           <div className="flex items-center justify-between pb-3 border-b border-black/10">
             <div className="flex items-center gap-2">
-              <Calendar className={`w-5 h-5 ${current.couleurText}`} />
+              <Calendar className={`w-5 h-5 ${current.couleurText} animate-pulse`} />
               <span className="text-xs font-bold text-coton-900">
                 Date promise demandée : <strong>{current.date}</strong>
               </span>
             </div>
             <span
-              className={`text-[11px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider ${current.couleurText} bg-white shadow-xs`}
+              className={`text-[11px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider ${current.couleurText} bg-white shadow-xs border border-black/5 flex items-center gap-1`}
             >
+              <span className={`w-1.5 h-1.5 rounded-full ${current.couleurBarre} animate-ping`} />
               {current.badge}
             </span>
           </div>
 
           <div className="mt-4 flex items-start gap-3.5">
-            <IconComponent className={`w-8 h-8 shrink-0 ${current.couleurText} mt-0.5`} />
+            <IconComponent className={`w-8 h-8 shrink-0 ${current.couleurText} mt-0.5 transition-transform duration-300 transform hover:scale-110`} />
             <div className="flex-1">
               <h4 className={`text-lg sm:text-xl font-extrabold ${current.couleurText}`}>
                 {current.titre}
@@ -132,17 +139,20 @@ export function CapacityGaugeShowcase() {
             </div>
           </div>
 
-          {/* Barre de progression visuelle */}
+          {/* Barre de progression visuelle animée */}
           <div className="mt-5 space-y-1.5">
             <div className="flex justify-between text-xs font-extrabold text-coton-900">
               <span>Niveau d&apos;engagement</span>
-              <span className={current.couleurText}>{current.charge}</span>
+              <span className={`${current.couleurText} text-sm font-black`}>{current.charge}</span>
             </div>
-            <div className="w-full h-3.5 bg-black/10 rounded-full overflow-hidden p-0.5">
+            <div className="w-full h-4 bg-black/10 rounded-full overflow-hidden p-0.5">
               <div
-                className={`h-full rounded-full transition-all duration-500 ${current.couleurBarre}`}
+                className={`h-full rounded-full transition-all duration-700 ease-out relative overflow-hidden ${current.couleurBarre}`}
                 style={{ width: `${Math.min(parseInt(current.charge, 10), 100)}%` }}
-              />
+              >
+                {/* Rayon de brillance animée qui traverse la jauge */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-[shimmer-sweep_2.5s_infinite]" />
+              </div>
             </div>
           </div>
         </div>

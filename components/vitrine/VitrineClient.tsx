@@ -135,6 +135,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
           1. HERO SECTION (Atmosphère d'atelier ouest-africain authentique)
       --------------------------------------------------------------------- */}
       <section className="relative overflow-hidden bg-primary-950 text-white py-14 sm:py-20 md:py-24 px-4 sm:px-8 border-b border-primary-900">
+        {/* Halos de lumière vivants & animés */}
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-terracotta-500/20 rounded-full blur-3xl pointer-events-none animate-glow-pulse" />
+        <div className="absolute top-1/3 -right-24 w-96 h-96 bg-primary-600/25 rounded-full blur-3xl pointer-events-none animate-glow-pulse" style={{ animationDelay: '-3.5s' }} />
+        <div className="absolute -bottom-24 left-1/4 w-80 h-80 bg-terracotta-600/15 rounded-full blur-3xl pointer-events-none animate-glow-pulse" style={{ animationDelay: '-6s' }} />
+
         {/* Motif textile discret et halo d'atelier */}
         <div className="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(#c25e3e_1px,transparent_1px)] [background-size:24px_24px]" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-950/75 via-primary-950/90 to-primary-950 pointer-events-none" />
@@ -143,19 +148,22 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
           {/* Badges de pays & spécialités ouest-africaines */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-terracotta-500/20 border border-terracotta-400/35 text-terracotta-300 text-xs font-bold shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-terracotta-400" />
+              <span className="relative flex h-2 w-2">
+                <span className="animate-radar absolute inline-flex h-full w-full rounded-full bg-terracotta-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-terracotta-500" />
+              </span>
               <span>Conçu pour les maîtres tailleurs & couturières d&apos;Afrique de l&apos;Ouest</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-coton-300 text-[11px] font-bold">
-              <span>🇨🇮 Abidjan</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-coton-300 text-[11px] font-bold backdrop-blur-xs">
+              <span className="hover:text-terracotta-300 transition-colors">🇨🇮 Abidjan</span>
               <span>•</span>
-              <span>🇸🇳 Dakar</span>
+              <span className="hover:text-terracotta-300 transition-colors">🇸🇳 Dakar</span>
               <span>•</span>
-              <span>🇧🇯 Cotonou</span>
+              <span className="hover:text-terracotta-300 transition-colors">🇧🇯 Cotonou</span>
               <span>•</span>
-              <span>🇲🇱 Bamako</span>
+              <span className="hover:text-terracotta-300 transition-colors">🇲🇱 Bamako</span>
               <span>•</span>
-              <span>🇬🇳 Conakry</span>
+              <span className="hover:text-terracotta-300 transition-colors">🇬🇳 Conakry</span>
             </div>
           </div>
 
@@ -176,16 +184,16 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                   variant="terracotta"
                   size="lg"
                   onClick={() => setIsModalOpen(true)}
-                  className="w-full sm:w-auto gap-2 text-base font-extrabold shadow-xl shadow-terracotta-500/25"
+                  className="w-full sm:w-auto gap-2 text-base font-extrabold shadow-xl shadow-terracotta-500/30 animate-shimmer-btn hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
                 >
                   <span>Rejoindre la liste d&apos;attente</span>
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <a href="#atelier" className="w-full sm:w-auto">
                   <Button
                     variant="secondary"
                     size="lg"
-                    className="w-full sm:w-auto font-bold bg-white/10 text-white border-white/20 hover:bg-white/20"
+                    className="w-full sm:w-auto font-bold bg-white/10 text-white border-white/20 hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                   >
                     Voir l&apos;ambiance atelier
                   </Button>
@@ -194,15 +202,15 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
 
               {/* Rassurance terrain Afrique */}
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-coton-400">
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-1.5 hover:text-white transition-colors">
                   <Smartphone className="w-4 h-4 text-terracotta-400" />
                   <span>Smartphone Android habituel</span>
                 </span>
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-1.5 hover:text-white transition-colors">
                   <WifiOff className="w-4 h-4 text-jauge-vert" />
                   <span>100% utilisable sans connexion</span>
                 </span>
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-1.5 hover:text-white transition-colors">
                   <ShieldCheck className="w-4 h-4 text-terracotta-400" />
                   <span>Orange Money, Wave, MTN</span>
                 </span>
@@ -213,14 +221,14 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             <div className="lg:col-span-5 relative flex justify-center">
               <div className="relative w-full max-w-md">
                 {/* Carte Principale : L'Atelier & Pagnes */}
-                <div className="relative rounded-3xl overflow-hidden border-2 border-white/15 shadow-2xl bg-primary-900 group">
+                <div className="relative rounded-3xl overflow-hidden border-2 border-white/15 shadow-2xl bg-primary-900 group hover:border-terracotta-400/40 hover:shadow-terracotta-500/20 transition-all duration-500">
                   <div className="relative aspect-4/3 w-full">
                     <Image
                       src="/images/atelier-pagnes.jpg"
                       alt="Couturière découpant des pagnes wax dans un atelier africain"
                       fill
                       priority
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                   </div>
@@ -238,8 +246,8 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                   </div>
                 </div>
 
-                {/* Vignette Maître Tailleur en superposition */}
-                <div className="absolute -bottom-6 -left-3 sm:-left-5 w-36 sm:w-44 rounded-2xl overflow-hidden border-2 border-terracotta-400 shadow-2xl bg-primary-950">
+                {/* Vignette Maître Tailleur en superposition flottante */}
+                <div className="absolute -bottom-6 -left-3 sm:-left-5 w-36 sm:w-44 rounded-2xl overflow-hidden border-2 border-terracotta-400 shadow-2xl bg-primary-950 animate-float-delayed hover:scale-105 transition-transform duration-300 z-20">
                   <div className="relative aspect-square w-full">
                     <Image
                       src="/images/maitre-tailleur.jpg"
@@ -257,8 +265,8 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                 </div>
 
                 {/* Badge flottant Jauge Tabaski */}
-                <div className="absolute -top-4 -right-2 sm:-right-4 px-3.5 py-2 rounded-2xl bg-primary-950/95 border border-jauge-vert/50 shadow-xl backdrop-blur-md flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-jauge-vert/20 text-jauge-vert flex items-center justify-center font-black text-xs">
+                <div className="absolute -top-4 -right-2 sm:-right-4 px-3.5 py-2 rounded-2xl bg-primary-950/95 border border-jauge-vert/60 shadow-xl backdrop-blur-md flex items-center gap-2.5 animate-float z-20 hover:scale-105 transition-transform duration-300">
+                  <div className="w-7 h-7 rounded-full bg-jauge-vert/20 text-jauge-vert flex items-center justify-center font-black text-xs animate-pulse">
                     ✓
                   </div>
                   <div>
@@ -277,29 +285,60 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
       </section>
 
       {/* ---------------------------------------------------------------------
-          RUBAN TEXTILE D'AFRIQUE DE L'OUEST
+          RUBAN TEXTILE D'AFRIQUE DE L'OUEST (DÉFILEMENT CONTINU INFINI)
       --------------------------------------------------------------------- */}
-      <div className="bg-primary-900 border-b border-primary-800 py-3 px-4 overflow-hidden text-white">
-        <div className="max-w-6xl mx-auto flex items-center justify-between gap-4 text-xs font-bold text-coton-300">
-          <span className="text-terracotta-400 shrink-0 uppercase tracking-wider text-[10px] sm:text-[11px] font-extrabold flex items-center gap-1.5">
-            <Scissors className="w-3.5 h-3.5 -rotate-45" />
-            <span>Pour nos tissus & cérémonies :</span>
+      <div className="bg-primary-900 border-b border-primary-800 py-3 overflow-hidden text-white relative">
+        {/* Masque de fondu doux sur les bords */}
+        <div className="absolute left-0 inset-y-0 w-12 sm:w-20 bg-gradient-to-r from-primary-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-12 sm:w-20 bg-gradient-to-l from-primary-900 to-transparent z-10 pointer-events-none" />
+
+        <div className="animate-marquee-infinite flex items-center gap-6 whitespace-nowrap text-xs sm:text-sm font-bold text-coton-200">
+          <span className="text-terracotta-400 font-extrabold flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta-500/10 border border-terracotta-500/20 shrink-0">
+            <Scissors className="w-3.5 h-3.5 -rotate-45 text-terracotta-400" />
+            <span>TISSUS & CÉRÉMONIES :</span>
           </span>
-          <div className="flex items-center gap-5 overflow-x-auto no-scrollbar whitespace-nowrap text-[11px] sm:text-xs text-coton-200">
-            <span>✨ Bazin Riche Damassé</span>
-            <span>•</span>
-            <span>🌺 Pagne Wax Hollandais & Vlisco</span>
-            <span>•</span>
-            <span>🧵 Woodin & Uniwax</span>
-            <span>•</span>
-            <span>👑 Grand Boubou 3 pièces</span>
-            <span>•</span>
-            <span>🕌 Tabaski & Korité</span>
-            <span>•</span>
-            <span>💍 Dots & Mariages coutumiers</span>
-            <span>•</span>
-            <span>🌍 Kita & Kente</span>
-          </div>
+          <span className="hover:text-terracotta-400 transition-colors">✨ Bazin Riche Damassé</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🌺 Pagne Wax Hollandais & Vlisco</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🧵 Woodin & Uniwax</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">👑 Grand Boubou 3 pièces</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🕌 Tabaski & Korité</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">💍 Dots & Mariages coutumiers</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🌍 Kita & Kente royal</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">✨ Bogolan traditionnel</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🪡 Broderie fil d&apos;or & sequins</span>
+          <span className="text-primary-700">•</span>
+
+          {/* DUPLICAT POUR DÉFILEMENT CONTINU PARFAIT */}
+          <span className="text-terracotta-400 font-extrabold flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta-500/10 border border-terracotta-500/20 shrink-0">
+            <Scissors className="w-3.5 h-3.5 -rotate-45 text-terracotta-400" />
+            <span>TISSUS & CÉRÉMONIES :</span>
+          </span>
+          <span className="hover:text-terracotta-400 transition-colors">✨ Bazin Riche Damassé</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🌺 Pagne Wax Hollandais & Vlisco</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🧵 Woodin & Uniwax</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">👑 Grand Boubou 3 pièces</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🕌 Tabaski & Korité</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">💍 Dots & Mariages coutumiers</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🌍 Kita & Kente royal</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">✨ Bogolan traditionnel</span>
+          <span className="text-primary-700">•</span>
+          <span className="hover:text-terracotta-400 transition-colors">🪡 Broderie fil d&apos;or & sequins</span>
+          <span className="text-primary-700">•</span>
         </div>
       </div>
 
@@ -322,13 +361,13 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Carte 1 : Table de coupe */}
-            <div className="rounded-3xl bg-white border border-coton-200 shadow-sm overflow-hidden flex flex-col">
-              <div className="relative aspect-16/10 w-full bg-coton-200">
+            <div className="card-interactive group cursor-pointer rounded-3xl bg-white border border-coton-200 shadow-sm overflow-hidden flex flex-col hover:border-terracotta-300">
+              <div className="relative aspect-16/10 w-full bg-coton-200 overflow-hidden">
                 <Image
                   src="/images/atelier-pagnes.jpg"
                   alt="Découpe du pagne à l'atelier"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
@@ -336,27 +375,28 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-terracotta-600 block">
                     1. La table de coupe
                   </span>
-                  <h3 className="text-lg font-extrabold text-primary-950 mt-1">
+                  <h3 className="text-lg font-extrabold text-primary-950 mt-1 group-hover:text-terracotta-600 transition-colors">
                     Zéro mélange de pagnes
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-coton-600 leading-relaxed">
                     Entre les coupons de bazin damassé et de wax entassés sur les étagères, couper le mauvais tissu coûte une fortune. La photo du pagne certifie à qui appartient chaque coupon.
                   </p>
                 </div>
-                <div className="pt-2 border-t border-coton-100 text-[11px] font-bold text-primary-950">
-                  Preuve indiscutable à la dépose
+                <div className="pt-2 border-t border-coton-100 text-[11px] font-bold text-primary-950 flex items-center justify-between">
+                  <span>Preuve indiscutable à la dépose</span>
+                  <span className="text-terracotta-500 font-extrabold opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
                 </div>
               </div>
             </div>
 
             {/* Carte 2 : Maître Tailleur */}
-            <div className="rounded-3xl bg-white border border-coton-200 shadow-sm overflow-hidden flex flex-col">
-              <div className="relative aspect-16/10 w-full bg-coton-200">
+            <div className="card-interactive group cursor-pointer rounded-3xl bg-white border border-coton-200 shadow-sm overflow-hidden flex flex-col hover:border-jauge-vert/50">
+              <div className="relative aspect-16/10 w-full bg-coton-200 overflow-hidden">
                 <Image
                   src="/images/maitre-tailleur.jpg"
                   alt="Maître tailleur africain serein"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
@@ -364,27 +404,28 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-jauge-vert block">
                     2. La gestion du maître
                   </span>
-                  <h3 className="text-lg font-extrabold text-primary-950 mt-1">
+                  <h3 className="text-lg font-extrabold text-primary-950 mt-1 group-hover:text-jauge-vert transition-colors">
                     Le respect du Maître Tailleur
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-coton-600 leading-relaxed">
                     Plus de clients furieux qui crient devant l&apos;atelier. Tu sais exactement ce que tes apprentis doivent coudre chaque matin. Tu deviens le tailleur le plus ponctuel du quartier.
                   </p>
                 </div>
-                <div className="pt-2 border-t border-coton-100 text-[11px] font-bold text-primary-950">
-                  Clients fidélisés d&apos;année en année
+                <div className="pt-2 border-t border-coton-100 text-[11px] font-bold text-primary-950 flex items-center justify-between">
+                  <span>Clients fidélisés d&apos;année en année</span>
+                  <span className="text-jauge-vert font-extrabold opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
                 </div>
               </div>
             </div>
 
             {/* Carte 3 : Atelier sans surcharge */}
-            <div className="rounded-3xl bg-white border border-coton-200 shadow-sm overflow-hidden flex flex-col">
-              <div className="relative aspect-16/10 w-full bg-coton-200">
+            <div className="card-interactive group cursor-pointer rounded-3xl bg-white border border-coton-200 shadow-sm overflow-hidden flex flex-col hover:border-terracotta-400">
+              <div className="relative aspect-16/10 w-full bg-coton-200 overflow-hidden">
                 <Image
                   src="/images/hero-atelier.jpg"
                   alt="Les machines à coudre qui tournent sans surcharge"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
@@ -392,15 +433,16 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-terracotta-500 block">
                     3. La veille des fêtes
                   </span>
-                  <h3 className="text-lg font-extrabold text-primary-950 mt-1">
+                  <h3 className="text-lg font-extrabold text-primary-950 mt-1 group-hover:text-terracotta-500 transition-colors">
                     Tabaski & Korité sans nuit blanche
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-coton-600 leading-relaxed">
                     Grâce à la jauge de charge, tu refuses poliment les commandes impossibles ou tu proposes une date réaliste. La veille de la fête, tout est repassé et livré à temps.
                   </p>
                 </div>
-                <div className="pt-2 border-t border-coton-100 text-[11px] font-bold text-primary-950">
-                  100% des habits livrés à l&apos;heure
+                <div className="pt-2 border-t border-coton-100 text-[11px] font-bold text-primary-950 flex items-center justify-between">
+                  <span>100% des habits livrés à l&apos;heure</span>
+                  <span className="text-terracotta-500 font-extrabold opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
                 </div>
               </div>
             </div>
@@ -426,11 +468,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-jauge-rouge-bg text-jauge-rouge flex items-center justify-center font-bold mb-4">
+          <div className="card-interactive group p-6 sm:p-7 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-jauge-rouge/40 cursor-pointer">
+            <div className="w-12 h-12 rounded-2xl bg-jauge-rouge-bg text-jauge-rouge flex items-center justify-center font-bold mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
               <Clock className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-extrabold text-primary-950">
+            <h3 className="text-lg font-extrabold text-primary-950 group-hover:text-jauge-rouge transition-colors">
               « Tu promets jeudi. Tu livres lundi. »
             </h3>
             <p className="mt-2 text-sm text-coton-700 leading-relaxed">
@@ -440,11 +482,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-jauge-orange-bg text-jauge-orange flex items-center justify-center font-bold mb-4">
+          <div className="card-interactive group p-6 sm:p-7 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-jauge-orange/40 cursor-pointer">
+            <div className="w-12 h-12 rounded-2xl bg-jauge-orange-bg text-jauge-orange flex items-center justify-center font-bold mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
               <BookX className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-extrabold text-primary-950">
+            <h3 className="text-lg font-extrabold text-primary-950 group-hover:text-jauge-orange transition-colors">
               « Tu rappelles le client pour ses mesures. »
             </h3>
             <p className="mt-2 text-sm text-coton-700 leading-relaxed">
@@ -454,11 +496,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-terracotta-100 text-terracotta-600 flex items-center justify-center font-bold mb-4">
+          <div className="card-interactive group p-6 sm:p-7 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-terracotta-300 cursor-pointer">
+            <div className="w-12 h-12 rounded-2xl bg-terracotta-100 text-terracotta-600 flex items-center justify-center font-bold mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
               <Layers className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-extrabold text-primary-950">
+            <h3 className="text-lg font-extrabold text-primary-950 group-hover:text-terracotta-600 transition-colors">
               « Les pagnes s&apos;entassent sans nom. »
             </h3>
             <p className="mt-2 text-sm text-coton-700 leading-relaxed">
@@ -468,11 +510,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-12 h-12 rounded-2xl bg-primary-900/10 text-primary-900 flex items-center justify-center font-bold mb-4">
+          <div className="card-interactive group p-6 sm:p-7 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-primary-400 cursor-pointer">
+            <div className="w-12 h-12 rounded-2xl bg-primary-900/10 text-primary-900 flex items-center justify-center font-bold mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
               <PhoneOff className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-extrabold text-primary-950">
+            <h3 className="text-lg font-extrabold text-primary-950 group-hover:text-primary-800 transition-colors">
               « Le téléphone sonne toute la journée. »
             </h3>
             <p className="mt-2 text-sm text-coton-700 leading-relaxed">
@@ -603,21 +645,21 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Photo 1: Le modèle voulu */}
-          <div className="rounded-3xl bg-white border border-coton-200 overflow-hidden shadow-sm flex flex-col">
-            <div className="relative aspect-square w-full bg-coton-100">
+          <div className="card-interactive group cursor-pointer rounded-3xl bg-white border border-coton-200 overflow-hidden shadow-sm flex flex-col hover:border-primary-800">
+            <div className="relative aspect-square w-full bg-coton-100 overflow-hidden">
               <Image
                 src="/images/modele-voulu.jpg"
                 alt="Modèle de boubou voulu par le client"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
               />
-              <span className="absolute top-3 left-3 bg-primary-950 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">
+              <span className="absolute top-3 left-3 bg-primary-950 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md group-hover:bg-primary-900 transition-colors">
                 1. LE MODÈLE VOULU
               </span>
             </div>
             <div className="p-5 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-extrabold text-base text-primary-950">
+                <h3 className="font-extrabold text-base text-primary-950 group-hover:text-primary-800 transition-colors">
                   La photo montrée par le client
                 </h3>
                 <p className="mt-1.5 text-xs text-coton-600 leading-relaxed">
@@ -629,21 +671,21 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
           </div>
 
           {/* Photo 2: Le tissu remis */}
-          <div className="rounded-3xl bg-white border border-coton-200 overflow-hidden shadow-sm flex flex-col">
-            <div className="relative aspect-square w-full bg-coton-100">
+          <div className="card-interactive group cursor-pointer rounded-3xl bg-white border border-coton-200 overflow-hidden shadow-sm flex flex-col hover:border-terracotta-400">
+            <div className="relative aspect-square w-full bg-coton-100 overflow-hidden">
               <Image
                 src="/images/tissu-remis.jpg"
                 alt="Tissu et pagne remis à l'atelier"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
               />
-              <span className="absolute top-3 left-3 bg-terracotta-500 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">
+              <span className="absolute top-3 left-3 bg-terracotta-500 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md group-hover:bg-terracotta-600 transition-colors">
                 2. LE TISSU REMIS
               </span>
             </div>
             <div className="p-5 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-extrabold text-base text-primary-950">
+                <h3 className="font-extrabold text-base text-primary-950 group-hover:text-terracotta-600 transition-colors">
                   Le coupon déposé à l&apos;atelier
                 </h3>
                 <p className="mt-1.5 text-xs text-coton-600 leading-relaxed">
@@ -655,21 +697,21 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
           </div>
 
           {/* Photo 3: La tenue finie */}
-          <div className="rounded-3xl bg-white border border-coton-200 overflow-hidden shadow-sm flex flex-col">
-            <div className="relative aspect-square w-full bg-coton-100">
+          <div className="card-interactive group cursor-pointer rounded-3xl bg-white border border-coton-200 overflow-hidden shadow-sm flex flex-col hover:border-jauge-vert">
+            <div className="relative aspect-square w-full bg-coton-100 overflow-hidden">
               <Image
                 src="/images/tenue-finie.jpg"
                 alt="Tenue confectionnée finie prête pour le client"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
               />
-              <span className="absolute top-3 left-3 bg-jauge-vert text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">
+              <span className="absolute top-3 left-3 bg-jauge-vert text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md group-hover:bg-emerald-700 transition-colors">
                 3. LA TENUE FINIE
               </span>
             </div>
             <div className="p-5 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-extrabold text-base text-primary-950">
+                <h3 className="font-extrabold text-base text-primary-950 group-hover:text-jauge-vert transition-colors">
                   Ton chef-d&apos;œuvre repassé
                 </h3>
                 <p className="mt-1.5 text-xs text-coton-600 leading-relaxed">
@@ -707,11 +749,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-3xl bg-coton-50 border border-coton-200 flex flex-col">
-              <div className="w-12 h-12 rounded-2xl bg-primary-950 text-terracotta-400 font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm">
+            <div className="card-interactive group p-6 sm:p-7 rounded-3xl bg-coton-50 border border-coton-200 flex flex-col hover:border-primary-900 cursor-pointer">
+              <div className="w-12 h-12 rounded-2xl bg-primary-950 text-terracotta-400 font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                 1
               </div>
-              <h3 className="text-lg font-extrabold text-primary-950">
+              <h3 className="text-lg font-extrabold text-primary-950 group-hover:text-terracotta-600 transition-colors">
                 Le client arrive
               </h3>
               <p className="mt-2 text-sm text-coton-700 leading-relaxed">
@@ -720,11 +762,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-coton-50 border border-coton-200 flex flex-col">
-              <div className="w-12 h-12 rounded-2xl bg-terracotta-500 text-white font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm">
+            <div className="card-interactive group p-6 sm:p-7 rounded-3xl bg-coton-50 border border-coton-200 flex flex-col hover:border-terracotta-400 cursor-pointer">
+              <div className="w-12 h-12 rounded-2xl bg-terracotta-500 text-white font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
                 2
               </div>
-              <h3 className="text-lg font-extrabold text-primary-950">
+              <h3 className="text-lg font-extrabold text-primary-950 group-hover:text-terracotta-500 transition-colors">
                 Tu regardes la jauge
               </h3>
               <p className="mt-2 text-sm text-coton-700 leading-relaxed">
@@ -733,11 +775,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-coton-50 border border-coton-200 flex flex-col">
-              <div className="w-12 h-12 rounded-2xl bg-jauge-vert text-white font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm">
+            <div className="card-interactive group p-6 sm:p-7 rounded-3xl bg-coton-50 border border-coton-200 flex flex-col hover:border-jauge-vert cursor-pointer">
+              <div className="w-12 h-12 rounded-2xl bg-jauge-vert text-white font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                 3
               </div>
-              <h3 className="text-lg font-extrabold text-primary-950">
+              <h3 className="text-lg font-extrabold text-primary-950 group-hover:text-jauge-vert transition-colors">
                 Tu couds l&apos;esprit tranquille
               </h3>
               <p className="mt-2 text-sm text-coton-700 leading-relaxed">
@@ -763,11 +805,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-primary-950 text-terracotta-400 flex items-center justify-center mb-4">
+          <div className="card-interactive group p-6 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-primary-900 cursor-pointer">
+            <div className="w-10 h-10 rounded-xl bg-primary-950 text-terracotta-400 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-xs">
               <FolderLock className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-extrabold text-primary-950">
+            <h3 className="text-base font-extrabold text-primary-950 group-hover:text-primary-800 transition-colors">
               Dossier client permanent
             </h3>
             <p className="mt-2 text-xs text-coton-600 leading-relaxed">
@@ -775,11 +817,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-terracotta-500 text-white flex items-center justify-center mb-4">
+          <div className="card-interactive group p-6 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-terracotta-400 cursor-pointer">
+            <div className="w-10 h-10 rounded-xl bg-terracotta-500 text-white flex items-center justify-center mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300 shadow-xs">
               <Zap className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-extrabold text-primary-950">
+            <h3 className="text-base font-extrabold text-primary-950 group-hover:text-terracotta-600 transition-colors">
               Calculateur anti-surcharge
             </h3>
             <p className="mt-2 text-xs text-coton-600 leading-relaxed">
@@ -787,11 +829,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-primary-900 text-white flex items-center justify-center mb-4">
+          <div className="card-interactive group p-6 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-primary-800 cursor-pointer">
+            <div className="w-10 h-10 rounded-xl bg-primary-900 text-white flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-xs">
               <Smartphone className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-extrabold text-primary-950">
+            <h3 className="text-base font-extrabold text-primary-950 group-hover:text-primary-800 transition-colors">
               Gestion des 3 photos
             </h3>
             <p className="mt-2 text-xs text-coton-600 leading-relaxed">
@@ -799,11 +841,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-jauge-vert text-white flex items-center justify-center mb-4">
+          <div className="card-interactive group p-6 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-jauge-vert cursor-pointer">
+            <div className="w-10 h-10 rounded-xl bg-jauge-vert text-white flex items-center justify-center mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300 shadow-xs">
               <Send className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-extrabold text-primary-950">
+            <h3 className="text-base font-extrabold text-primary-950 group-hover:text-jauge-vert transition-colors">
               Suivi client sans compte
             </h3>
             <p className="mt-2 text-xs text-coton-600 leading-relaxed">
@@ -811,11 +853,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-terracotta-600 text-white flex items-center justify-center mb-4">
+          <div className="card-interactive group p-6 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-terracotta-500 cursor-pointer">
+            <div className="w-10 h-10 rounded-xl bg-terracotta-600 text-white flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-xs">
               <ShieldCheck className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-extrabold text-primary-950">
+            <h3 className="text-base font-extrabold text-primary-950 group-hover:text-terracotta-600 transition-colors">
               Suivi de caisse & impayés
             </h3>
             <p className="mt-2 text-xs text-coton-600 leading-relaxed">
@@ -823,11 +865,11 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-coton-200 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-primary-800 text-white flex items-center justify-center mb-4">
+          <div className="card-interactive group p-6 rounded-3xl bg-white border border-coton-200 shadow-sm hover:border-primary-700 cursor-pointer">
+            <div className="w-10 h-10 rounded-xl bg-primary-800 text-white flex items-center justify-center mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300 shadow-xs">
               <UserCheck className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-extrabold text-primary-950">
+            <h3 className="text-base font-extrabold text-primary-950 group-hover:text-primary-800 transition-colors">
               Répartition par couturier
             </h3>
             <p className="mt-2 text-xs text-coton-600 leading-relaxed">
@@ -879,12 +921,12 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {/* Formule Gratuite */}
-          <div className="p-8 rounded-3xl bg-white border border-coton-200 shadow-sm flex flex-col justify-between">
+          <div className="card-interactive group p-8 rounded-3xl bg-white border border-coton-200 shadow-sm flex flex-col justify-between hover:border-primary-400 cursor-pointer">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-coton-500">
                 Pour démarrer
               </span>
-              <h3 className="text-2xl font-extrabold text-primary-950 mt-1">
+              <h3 className="text-2xl font-extrabold text-primary-950 mt-1 group-hover:text-primary-800 transition-colors">
                 Formule Découverte
               </h3>
               <div className="mt-4 flex items-baseline gap-1">
@@ -920,7 +962,7 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                 variant="secondary"
                 size="default"
                 onClick={() => setIsModalOpen(true)}
-                className="w-full font-bold border-coton-300"
+                className="w-full font-bold border-coton-300 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 Commencer gratuitement
               </Button>
@@ -928,16 +970,17 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
           </div>
 
           {/* Formule Atelier Pro */}
-          <div className="p-8 rounded-3xl bg-primary-950 text-white border-2 border-terracotta-500 shadow-2xl flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-4 right-4 bg-terracotta-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
-              Recommandé
+          <div className="card-interactive group p-8 rounded-3xl bg-primary-950 text-white border-2 border-terracotta-500 shadow-2xl flex flex-col justify-between relative overflow-hidden hover:scale-[1.02] hover:shadow-terracotta-500/25 transition-all duration-300 cursor-pointer">
+            <div className="absolute top-4 right-4 bg-terracotta-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+              <span>Recommandé</span>
             </div>
 
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-terracotta-400">
                 Pour les ateliers actifs
               </span>
-              <h3 className="text-2xl font-extrabold text-white mt-1">
+              <h3 className="text-2xl font-extrabold text-white mt-1 group-hover:text-terracotta-300 transition-colors">
                 Atelier Pro
               </h3>
               <div className="mt-4 flex items-baseline gap-1">
@@ -977,7 +1020,7 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
                 variant="terracotta"
                 size="lg"
                 onClick={() => setIsModalOpen(true)}
-                className="w-full font-extrabold shadow-lg shadow-terracotta-500/25 text-base"
+                className="w-full font-extrabold shadow-lg shadow-terracotta-500/30 text-base animate-shimmer-btn hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 Réserver ma place Pro
               </Button>
@@ -1006,22 +1049,22 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border border-coton-200 overflow-hidden bg-coton-50/50 transition-colors"
+                  className="rounded-2xl border border-coton-200 overflow-hidden bg-coton-50/50 transition-all hover:border-terracotta-200 hover:shadow-xs"
                 >
                   <button
                     type="button"
                     onClick={() => toggleFaq(index)}
-                    className="w-full p-5 text-left font-bold text-sm sm:text-base text-primary-950 flex items-center justify-between gap-4 cursor-pointer"
+                    className="w-full p-5 text-left font-bold text-sm sm:text-base text-primary-950 flex items-center justify-between gap-4 cursor-pointer hover:text-terracotta-600 transition-colors"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-coton-500 shrink-0 transition-transform duration-200 ${
+                      className={`w-5 h-5 text-coton-500 shrink-0 transition-transform duration-300 ${
                         isOpen ? 'rotate-180 text-terracotta-600' : ''
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-coton-700 leading-relaxed border-t border-coton-200/60 pt-3">
+                    <div className="px-5 pb-5 text-xs sm:text-sm text-coton-700 leading-relaxed border-t border-coton-200/60 pt-3 animate-in fade-in duration-200">
                       {faq.r}
                     </div>
                   )}
@@ -1036,7 +1079,7 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
           SECTION TÉMOIGNAGES (STRICTEMENT CONFORME AUX RÈGLES : LAISSÉE VIDE & À REMPLIR)
       --------------------------------------------------------------------- */}
       <section className="py-12 px-4 sm:px-8 max-w-4xl mx-auto text-center">
-        <div className="p-6 rounded-2xl border border-dashed border-coton-300 bg-coton-100/40 text-coton-500 text-xs font-semibold">
+        <div className="p-6 rounded-2xl border border-dashed border-coton-300 bg-coton-100/40 text-coton-500 text-xs font-semibold hover:border-coton-400 transition-colors">
           <span className="uppercase tracking-wider font-bold block mb-1">
             Section Témoignages d&apos;ateliers
           </span>
@@ -1050,10 +1093,17 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
           11. CTA FINAL + COMPTEUR RÉEL DEPUIS LA BASE
       --------------------------------------------------------------------- */}
       <section className="py-16 sm:py-24 bg-primary-950 text-white px-4 sm:px-8 border-t border-primary-900 text-center relative overflow-hidden">
+        {/* Halos lumineux en fond */}
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-terracotta-500/20 rounded-full blur-3xl pointer-events-none animate-glow-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary-600/20 rounded-full blur-3xl pointer-events-none animate-glow-pulse" style={{ animationDelay: '-4s' }} />
+
         <div className="max-w-3xl mx-auto relative z-10">
           {/* Compteur réel lu depuis Supabase liste_attente */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-900 border border-primary-800 text-coton-200 text-xs sm:text-sm font-bold mb-6 shadow-sm">
-            <span className="w-2.5 h-2.5 rounded-full bg-jauge-vert animate-pulse" />
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-radar absolute inline-flex h-full w-full rounded-full bg-jauge-vert opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-jauge-vert" />
+            </span>
             <span>
               <strong>{inscritsCount} ateliers</strong> déjà inscrits sur la liste d&apos;attente
             </span>
@@ -1073,10 +1123,10 @@ export function VitrineClient({ inscritsCount }: VitrineClientProps) {
               variant="terracotta"
               size="lg"
               onClick={() => setIsModalOpen(true)}
-              className="w-full sm:w-auto gap-2 text-base sm:text-lg font-extrabold shadow-xl shadow-terracotta-500/25"
+              className="w-full sm:w-auto gap-2 text-base sm:text-lg font-extrabold shadow-xl shadow-terracotta-500/30 animate-shimmer-btn hover:scale-[1.03] active:scale-[0.98] transition-all"
             >
               <span>Rejoindre la liste d&apos;attente</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
 
