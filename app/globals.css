@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary-950: #0F1020;
+  --color-primary-900: #1B1C33;
+  --color-primary-800: #292B4D;
+  --color-primary-700: #393C6B;
+  --color-primary-600: #4B4F85;
+  --color-primary-500: #6267A3;
+
+  --color-terracotta-700: #873617;
+  --color-terracotta-600: #A6441E;
+  --color-terracotta-500: #C45525;
+  --color-terracotta-400: #DE6835;
+  --color-terracotta-300: #EFA07B;
+  --color-terracotta-200: #F6C5AF;
+  --color-terracotta-100: #FDF0EA;
+  --color-terracotta-50: #FFF7F3;
+
+  --color-coton-900: #1A1816;
+  --color-coton-800: #2E2A27;
+  --color-coton-700: #453F3A;
+  --color-coton-600: #59524A;
+  --color-coton-500: #7A7268;
+  --color-coton-400: #A89F95;
+  --color-coton-300: #C7BEB4;
+  --color-coton-200: #E3D7C9;
+  --color-coton-100: #F2ECE4;
+  --color-coton-50: #FAF8F5;
+
+  --color-jauge-vert: #15803D;
+  --color-jauge-vert-bg: #EBF7EE;
+  --color-jauge-orange: #D97706;
+  --color-jauge-orange-bg: #FEF6E7;
+  --color-jauge-rouge: #DC2626;
+  --color-jauge-rouge-bg: #FDF0F0;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF8F5;
+  --foreground: #1A1816;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
+html, body {
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Zone tactile mobile obligatoire : 52px min */
+.touch-target {
+  min-height: 52px;
+}
+
+/* Texture discrète évoquant le tissage traditionnel ouest-africain */
+.pattern-wax {
+  background-image: radial-gradient(rgba(196, 85, 37, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.pattern-indigo {
+  background-image: radial-gradient(rgba(75, 79, 133, 0.15) 1px, transparent 0);
+  background-size: 20px 20px;
 }

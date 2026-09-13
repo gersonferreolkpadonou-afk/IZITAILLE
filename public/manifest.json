@@ -1,0 +1,16 @@
+{
+  "name": "IZITAILLE",
+  "short_name": "IZITAILLE",
+  "description": "Gestion d'atelier de couture & calcul de capacité",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#0F1020",
+  "theme_color": "#0F1020",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
